@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" style="color: white;">Shortened Url</a>
+    </div>
+    <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+    </ul>
+</div>
+</nav>
+
+  <div class="container">
+      <form action="/action_page.php">
+        <div class="form-group">
+          <label for="longUrl">Actual Url:</label>
+          <input type="longUrl" class="form-control" id="longUrl">
+        </div>
+        <div class="form-group">
+          <label for="shortUrl">Shortened Url:</label>
+          <input type="shortUrl" class="form-control" id="shortUrl">
+        </div>
+        
+        <button type="submit" style="float: right;" class="btn btn-success">Create</button>
+      </form>
+      
+      <br><br>
+      <div class="row">
+        <table class="table table-bordered">
+            <thead>
+              <tr><th style="background-color: cyan;" colspan=3>Shortened Urls</th></tr>
+              <tr>
+                <th>Id</th>
+                <th>Long Url</th>
+                <th>Shortened Url</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for url in shortenedUrlList %}
+              <tr>
+                <td>{{url.id}}</td>
+                <td>{{url.longurl}}</td>
+                <td>{{url.shorturl}}</td>
+              </tr>
+              {% endfor %}
+              
+            </tbody>
+          </table>
+        
+      </div>
+   </div>
+    
+</div>
+    
+    {% endblock %}
+    
+    
